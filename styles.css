@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-seriff;
+    margin: 0;
+    padding: 0;
+    background-color: #001f3f;
+    background-image: url('assets/213_generated.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+header{
+    
+    margin-left: 40px;
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 100;
+    margin: 0;
+}
+
+h2 {
+    margin-left: 40px;
+    font-weight: 400;
+}
+
+p {
+    margin-left: 40px;
+}
+
+.client-section {
+    margin-top: 200px;
+    background-color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.client-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.client-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    justify-items: center;
+}
+
+.client img {
+    max-width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.client img:hover {
+    filter: grayscale(0%);
+}
