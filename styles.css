@@ -9,25 +9,52 @@ body {
     color: white;
 }
 
-header{
-    
-    margin-left: 40px;
-    padding: 50px 0;
+header {
+    background-color: #003366; /* Dark blue background */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Spaces out content: title on the left, button on the right */
+    align-items: center; /* Centers items vertically */
+    color: white;
+    position: relative; /* Ensures child elements like the button are positioned relative to the header */
 }
 
-h1 {
+.contact-button {
+    background-color: white; /* Button background color */
+    color: #003366; /* Dark blue text color */
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none; /* Removes underline */
+    border: 2px solid #003366; /* Dark blue border */
+    border-radius: 40px; /* Fully rounded button */
+    padding: 10px 20px; /* Padding for the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.contact-button:hover {
+    background-color: #003366; /* Dark blue background on hover */
+    color: white; /* White text on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+header h1 {
     font-size: 2.5em;
     font-weight: 100;
     margin: 0;
+    margin-left: 40px;
+    color: white;
 }
 
-h2 {
+ .intro h2 {
     margin-left: 40px;
     font-weight: 400;
+    color: white;
 }
 
-p {
+.intro p {
     margin-left: 40px;
+    color: white;
 }
 
 .client-section {
@@ -40,7 +67,7 @@ p {
 .client-section h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #003366;
 }
 
 .client-section p {
@@ -68,13 +95,74 @@ p {
     filter: grayscale(0%);
 }
 
-/* carousel */
-
-.carousel img {
-    max-height: 400px;
-    object-fit: cover;
-}
-.carousel-section {
-    background-color: #f8f9fa;
+.services-grid {
+    width: 90%;
+    background-color: white;
     padding: 50px 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+
+.services-grid .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services-grid h2 {
+    font-size: 2.5rem;
+    color: #003366; /* Dark blue */
+    margin-bottom: 30px;
+}
+
+.service-card {
+    width: 100%; /* Adjusted to fill the column width */
+    height: 280px; /* Fixed height for consistency */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-card img {
+    width: 120px; /* Fixed width for images */
+    height: 100px; /* Fixed height to prevent distortion */
+    object-fit: contain; /* Keeps the image ratio */
+    border-radius: 10px; /* Optional rounded corners for images */
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* responsive behaivor */
+
+@media (max-width: 768px) {
+    .services-grid .row {
+        justify-content: center;
+    }
+    .service-card {
+        width: 240px; /* Slightly smaller on small screens */
+        height: 240px; /* Matches width for square shape */
+    }
+    .service-card img {
+        width: 100px; /* Scale down images on smaller cards */
+        height: 80px;
+    }
 }
