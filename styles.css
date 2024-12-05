@@ -9,43 +9,109 @@ body {
     color: white;
 }
 
-header {
-    background-color: #003366; /* Dark blue background */
-    padding: 10px;
-    display: flex;
-    justify-content: space-between; /* Spaces out content: title on the left, button on the right */
-    align-items: center; /* Centers items vertically */
-    color: white;
-    position: relative; /* Ensures child elements like the button are positioned relative to the header */
+/* Container for Flip Animation */
+.contact-container {
+    position: relative;
+    width: 200px; /* Adjust to match the button/card width */
+    height: 60px; /* Adjust to match the button/card height */
+    perspective: 1000px; /* Enables the 3D effect */
 }
 
+/* Flip Wrapper */
+.contact-container div, .contact-container button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side when flipped */
+    transition: transform 0.6s ease-in-out; /* Smooth flipping animation */
+}
+
+/* Contact Card */
+.contact-card {
+    background-color: #003366; /* Dark blue */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    transform: rotateY(180deg); /* Start hidden */
+}
+
+.contact-card p {
+    margin: 5px 0;
+}
+
+.contact-card a {
+    color: #00acee; /* Light blue for email */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #00d4ff; /* Brighter blue on hover */
+}
+
+/* Contact Button */
 .contact-button {
-    background-color: white; /* Button background color */
-    color: #003366; /* Dark blue text color */
+    background-color: white;
+    color: #003366;
+    border: 2px solid #003366;
+    border-radius: 10px;
     font-size: 1rem;
     font-weight: bold;
-    text-decoration: none; /* Removes underline */
-    border: 2px solid #003366; /* Dark blue border */
-    border-radius: 40px; /* Fully rounded button */
-    padding: 10px 20px; /* Padding for the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: all 0.3s ease; /* Smooth hover effect */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: rotateY(0deg); /* Start visible */
 }
 
-.contact-button:hover {
-    background-color: #003366; /* Dark blue background on hover */
-    color: white; /* White text on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+/* Flip the Card */
+.contact-container.flipped .contact-button {
+    transform: rotateY(180deg);
 }
 
-header h1 {
-    font-size: 2.5em;
-    font-weight: 100;
-    margin: 0;
-    margin-left: 40px;
+.contact-container.flipped .contact-card {
+    transform: rotateY(0deg);
+}
+
+header {
+    background-color: #003366; /* Dark blue background */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Space out the titles and the button */
+    align-items: center; /* Vertically align elements */
     color: white;
+    position: relative;
 }
 
+/* Title Container */
+.header-titles {
+    text-align: left; /* Aligns titles to the left */
+    margin-left: 20px; /* Adds space from the left edge */
+}
+
+/* Main Heading (H1) */
+header h1 {
+    font-family: 'Calibri', Arial, sans-serif;
+    font-size: 2.5rem; /* Main heading size */
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Subtitle */
+.subtitle {
+    font-family: 'Dubai', Arial, sans-serif;
+    font-size: 1.2rem; /* Smaller than the main heading */
+    font-weight: 300; /* Thinner text for a subtler look */
+    margin: 5px 0 0; /* Add minimal spacing above and below */
+}
  .intro h2 {
     margin-left: 40px;
     font-weight: 400;
@@ -55,6 +121,58 @@ header h1 {
 .intro p {
     margin-left: 40px;
     color: white;
+}
+
+
+/* Mission Section */
+
+/* Mission Section */
+.mission-section {
+    width: 90%;
+    margin: 40px auto;
+}
+
+.mission-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px; 
+}
+
+.mission-bubble {
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text */
+    padding: 40px;
+    border-radius: 50px; /* Rounded bubble */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    margin: 0 auto; /* Center the bubble */
+    max-width: 800px; /* Limit the bubble's width */
+    text-align: center;
+    line-height: 1.6; /* Improve readability */
+    font-size: 1.1rem; /* Slightly larger font */
+}
+
+.mission-bubble h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mission-bubble p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+
+@media (max-width: 768px) {
+    .mission-bubble {
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .mission-bubble h2 {
+        font-size: 1.5rem;
+    }
 }
 
 .client-section {
@@ -95,60 +213,97 @@ header h1 {
     filter: grayscale(0%);
 }
 
-.services-grid {
+/* Services Section */
+.services-section {
     width: 90%;
+    margin: 0 auto;
+    padding: 50px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.services-section h2 {
+    color: white;
+}
+
+/* Service List Container */
+.services-list {
+    display: flex;
+    flex-wrap: wrap; /* Ensures buttons stack on smaller screens */
+    justify-content: center; /* Center-aligns buttons */
+    gap: 20px; /* Spacing between buttons */
+    margin-top: 20px;
+}
+
+/* Individual Service Items */
+.service-item {
+    display: inline-block;
+    background-color: #003366; /* Dark blue */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none; /* Removes underline */
+    padding: 15px 30px;
+    border-radius: 50px; /* Rounded bubble look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    text-align: center;
+    white-space: nowrap; /* Keeps the text on one line */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
+.service-item:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    background-color: #002244; /* Slightly darker blue */
+}
+
+
+/* Location Bubble */
+.location-bubble {
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text for contrast */
+    padding: 30px;
+    border-radius: 50px; /* Rounded bubble look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    margin: 30px auto 0; /* Center the bubble and add spacing */
+    max-width: 800px; /* Limit the bubble's width */
+    text-align: center; /* Center the text inside */
+    line-height: 1.6; /* Better readability */
+    font-size: 1rem;
+}
+
+.location-bubble a {
+    color: #00acee; /* Light blue for email link */
+    text-decoration: underline; /* Underlined for visibility */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.location-bubble a:hover {
+    color: #00d4ff; /* Brighter blue on hover */
+}
+
+
+/* Work Locations */
+
+.location-section {
+    margin-top: 200px;
     background-color: white;
     padding: 50px 20px;
-    margin: 50px auto;
-    border-radius: 10px;
+    text-align: center;
 }
 
-
-.services-grid .row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.services-grid h2 {
+.location-section h2 {
     font-size: 2.5rem;
     color: #003366; /* Dark blue */
     margin-bottom: 30px;
 }
 
-.service-card {
-    width: 100%; /* Adjusted to fill the column width */
-    height: 280px; /* Fixed height for consistency */
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.service-card h3 {
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.service-card img {
-    width: 120px; /* Fixed width for images */
-    height: 100px; /* Fixed height to prevent distortion */
-    object-fit: contain; /* Keeps the image ratio */
-    border-radius: 10px; /* Optional rounded corners for images */
-    margin-bottom: 10px;
-}
-
-.service-card p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 10px;
+.states img {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
 }
 
 /* responsive behaivor */

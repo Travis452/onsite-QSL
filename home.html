@@ -3,47 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnSite QSR</title>
+    <title>OnSiteQSR</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
     <header>
-        <h1>OnSite  QSR</h1>
-        <a href="#contact-section" class="contact-button">Contact</a>
-    
+        <div class="header-titles">
+            <h1>OnSiteQSR</h1>
+            <p class="subtitle">We Build Better Drive-Thrus</p>
+        </div>
+
+        <div id="contact-container" class="contact-container">
+            <div class="contact-card">
+                <p class="contact-name">Joe Cattell</p>
+                <p class="contact-phone">214-334-7149</p>
+                <p class="contact-email"><a href="mailto:info@onsiteqsr.com">info@onsiteqsr.com</a></p>
+            </div>
+            <button class="contact-button">Contact</button>
+        </div>
+
     </header>
     <main>
 
-        <section class="services-grid py-5">
+        <section class="mission-section">
             <div class="container text-center">
-                <h2 class="mb-4">Our Services</h2>
-                <div class="row justify-content-center">
-                    <!-- Service 1 -->
-                    <div class="col-md-4">
-                        <div class="service-card">
-                            <h3>Drive-Thru</h3>
-                            <img src="assets/stock/drive-thru.jpg" class="img-fluid service-image" alt="Drive-Thru">
-                            <p>High-quality displays designed to make drive-thru orders seamless and efficient.</p>
-                        </div>
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="col-md-4">
-                        <div class="service-card">
-                            <h3>Kiosk</h3>
-                            <img src="assets/stock/kiosk.jpg" class="img-fluid service-image" alt="Kiosk">
-                            <p>Interactive displays crafted to enhance the user experience and streamline ordering.</p>
-                        </div>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="col-md-4">
-                        <div class="service-card">
-                            <h3>Dine-In</h3>
-                            <img src="assets/stock/dine-in.jpg" class="img-fluid service-image" alt="Double-Check">
-                            <p>Elegant and functional displays tailored to create a better dine-in experience</p>
-                        </div>
-                    </div>
+                <div class="mission-bubble">
+                <p>OnSiteQSR is your turnkey solution to all things QSR.
+                    From new build planning and construction, to existing location upgrades and repairss,
+                    our expert installers are here to help.
+                    From ODMBs and IDMBs, interactive kisok and KDS systems
+                    to improve efficiency and order correctness, security and 
+                    camera systems, and advanced automated lighting, let 
+                    us show you how we can make your QSR a state-of-the-art QSR.
+                </p>
+            </div>
+            </div>
+        </section>
+
+        <section class="services-section py-5">
+            <div class="container text-center">
+                <div class="services-list">
+                    <a href="outdoor-digital-signage.html" class="service-item">Outdoor Digital Signage</a>
+                    <a href="#indoor-digital-signage" class="service-item">Indoor Digital Signage</a>
+                    <a href="#interactive-digital-signage" class="service-item">Interactive Digital Signage</a>
+                    <a href="#communication-systems" class="service-item">Communication Systems</a>
+                    <a href="#automated-lighting" class="service-item">Automated Lighting</a>
+                    <a href="#security" class="service-item">Security</a>
+                    <a href="#service-repair" class="service-item">Service/Repair</a>
+                    <a href="#static-displays" class="service-item">Static Displays</a>
+
+                </div>
+                <div class="location-bubble">
+                    <p>
+                        Based in Dallas, TX, OnSiteQSR provides service nationwide. 
+                        Contact us today to schedule your project with our experienced installers. 
+                        <a href="mailto:info@onsiteqsr.com">info@onsiteqsr.com</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -82,8 +99,37 @@
                 </div>
             </div>
         </section>
+
+        <section class="location-section">
+            <h2>Locations</h2>
+            <p>OnSite QSR proudly serves clients nationwide, covering all states except Alaska and Hawaii.</p>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="states">
+                        <img src="assets\location\states.jpg" alt="USA">
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const contactContainer = document.getElementById('contact-container');
+        const contactCard = document.querySelector('.contact-card');
+        const contactButton = document.querySelector('.contact-button');
+    
+        // Toggle flip state on click
+        contactContainer.addEventListener('click', () => {
+            contactContainer.classList.toggle('flipped');
+        });
+    </script>
+
 </body>
+
+<footer>
+
+</footer>
 </html>
